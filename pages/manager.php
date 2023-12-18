@@ -1,3 +1,5 @@
+<?php include 'modules/header.php'; ?>
+<?php include 'modules/navbar.php'; ?>
 <?php
 session_start();
 
