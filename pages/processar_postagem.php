@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result_check_post->num_rows > 0) {
         // O usuário já possui uma postagem
-        echo "Você já possui uma postagem.";
+        echo '<script>alert("Você já possui uma postagem."); window.location.href = "manager.php";</script>';
         exit();
     }
 
