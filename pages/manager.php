@@ -59,7 +59,11 @@ $result_posts = $stmt_posts->get_result();
         while ($row = $result_posts->fetch_assoc()) {
             echo "<div>";
             echo "<p><strong>ID:</strong> " . $row['id'] . "</p>";
-            echo "<p><strong>Imagem:</strong> <img src='" . $row['image_path'] . "' alt='Imagem'></p>";
+
+            // Exibir a imagem diretamente
+            $imagePath = $row['image_url'];
+            echo "<p><strong>Imagem:</strong> <img src='$imagePath' alt='Imagem'></p>";
+
             echo "<p><strong>Tag:</strong> " . $row['tag'] . "</p>";
             echo "<p><strong>Texto:</strong> " . $row['text_content'] . "</p>";
             echo "<p><strong>Data de Criação:</strong> " . $row['created_at'] . "</p>";
@@ -73,6 +77,7 @@ $result_posts = $stmt_posts->get_result();
             echo "</div>";
         }
         ?>
+
 
     </div>
 
