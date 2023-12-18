@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $stmt_insert->bind_param("isss", $user_id, $image_url, $tag, $text_content);
 
-
         if ($stmt_insert->execute()) {
             // Redirecionar de volta para a página de gerenciamento
             header("Location: manager.php");
