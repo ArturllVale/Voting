@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 <?php
 session_start(); //Inicializar a sessão
 //Incluir a conexão com o banco de dados
