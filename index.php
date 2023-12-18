@@ -1,4 +1,3 @@
-<!-- index.php -->
 <?php
 session_start(); // Inicializar a sessão
 include_once("config/conexao.php");
