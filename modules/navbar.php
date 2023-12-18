@@ -9,7 +9,7 @@
         <a class="nav-link" href="#">Início</a>
         <a class="nav-link" href="#">Sobre</a>
         <a class="nav-link" href="pages/login.php">Painel</a>
-        <a class="nav-link" href="#">Nova Conta</a>
+        <a class="nav-link" href="pages/register.php">Nova Conta</a>
       </div>
     </div>
   </div>
