@@ -56,17 +56,20 @@ $result_posts = $stmt_posts->get_result();
 
         <h2>Seus Posts:</h2>
         <?php
-        // Exibir os posts do usuário
         while ($row = $result_posts->fetch_assoc()) {
             echo "<div>";
             echo "<p><strong>ID:</strong> " . $row['id'] . "</p>";
-
-            // Exibir a imagem diretamente
             echo "<p><strong>Imagem:</strong> <img src='" . $row['image_path'] . "' alt='Imagem'></p>";
-
             echo "<p><strong>Tag:</strong> " . $row['tag'] . "</p>";
             echo "<p><strong>Texto:</strong> " . $row['text_content'] . "</p>";
             echo "<p><strong>Data de Criação:</strong> " . $row['created_at'] . "</p>";
+
+            // Adicionar botão de exclusão
+            echo "<form action='excluir_post.php' method='post'>";
+            echo "<input type='hidden' name='post_id' value='" . $row['id'] . "'>";
+            echo "<input type='submit' value='Excluir Post'>";
+            echo "</form>";
+
             echo "</div>";
         }
         ?>
