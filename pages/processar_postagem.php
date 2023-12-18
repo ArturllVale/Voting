@@ -16,6 +16,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title']; // Adicionado
     $text_content = $_POST['text_content'];
 
+    // Verificar se o usuário já possui uma postagem
+    $query_check_post = "SELECT id FROM posts WHERE user_id = ? LIMIT 1";
+    $stmt_check_post = $conn->prepare($query_check_post);
+    $stmt_check_post->bind_param("i", $user_id);
+    $stmt_check_post->execute();
+    $result_check_post = $stmt_check_post->get_result();
+
+    if ($result_check_post->num_rows > 0) {
+        // O usuário já possui uma postagem
+        echo "Você já possui uma postagem.";
+        exit();
+    }
+
     // Verificar se o campo da URL da imagem está definido
     if (isset($_POST['image_url'])) {
         $image_url = $_POST['image_url'];
