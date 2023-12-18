@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obter dados do formulário
     $user_id = $_SESSION['user_id'];
     $tag = $_POST['tag'];
-    $title = $_POST['title']; // Adicionado
+    $title = $_POST['title'];
     $text_content = $_POST['text_content'];
 
     // Verificar se o usuário já possui uma postagem
