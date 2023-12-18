@@ -20,10 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $image_url = $_POST['image_url'];
 
         // Inserir os dados no banco de dados
-        $query_insert = "INSERT INTO posts (user_id, image_path, tag, text_content) VALUES (?, ?, ?, ?)";
+        $query_insert = "INSERT INTO posts (user_id, image_url, tag, text_content) VALUES (?, ?, ?, ?)";
         $stmt_insert = $conn->prepare($query_insert);
-        $default_image_path = ''; // Defina um valor padrão para image_path, já que não estamos fazendo upload
-        $stmt_insert->bind_param("isss", $user_id, $default_image_path, $tag, $text_content);
+        $default_image_url = ''; // Defina um valor padrão para image_url, já que não estamos fazendo upload
+        $stmt_insert->bind_param("isss", $user_id, $default_image_url, $tag, $text_content);
 
         if ($stmt_insert->execute()) {
             // Redirecionar de volta para a página de gerenciamento
