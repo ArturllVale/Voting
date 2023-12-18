@@ -15,44 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tag = $_POST['tag'];
     $text_content = $_POST['text_content'];
 
-    // Verificar se a imagem foi enviada
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        // Configurações do upload
-        $upload_dir = 'uploads/'; // Diretório para salvar as imagens
-        $allowed_extensions = array('jpg', 'jpeg', 'png', 'gif');
+    // Verificar se o campo da URL da imagem está definido
+    if (isset($_POST['image_url'])) {
+        $image_url = $_POST['image_url'];
 
-        // Obter informações sobre a imagem
-        $image_info = pathinfo($_FILES['image']['name']);
-        $image_extension = strtolower($image_info['extension']);
+        // Inserir os dados no banco de dados
+        $query_insert = "INSERT INTO posts (user_id, image_path, tag, text_content) VALUES (?, ?, ?, ?)";
+        $stmt_insert = $conn->prepare($query_insert);
+        $default_image_path = ''; // Defina um valor padrão para image_path, já que não estamos fazendo upload
+        $stmt_insert->bind_param("isss", $user_id, $default_image_path, $tag, $text_content);
 
-        // Verificar a extensão da imagem
-        if (in_array($image_extension, $allowed_extensions)) {
-            // Gerar um nome único para a imagem
-            $image_name = uniqid('post_') . '.' . $image_extension;
-
-            // Caminho completo para a imagem
-            $image_path = $upload_dir . $image_name;
-
-            // Mover a imagem para o diretório de uploads
-            move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
-
-            // Inserir os dados no banco de dados
-            $query_insert = "INSERT INTO posts (user_id, image_path, tag, text_content) VALUES (?, ?, ?, ?)";
-            $stmt_insert = $conn->prepare($query_insert);
-            $stmt_insert->bind_param("iss", $user_id, $image_path, $tag, $text_content);
-
-            if ($stmt_insert->execute()) {
-                // Redirecionar de volta para a página de gerenciamento
-                header("Location: manager.php");
-                exit();
-            } else {
-                echo "Erro ao inserir post no banco de dados.";
-            }
+        if ($stmt_insert->execute()) {
+            // Redirecionar de volta para a página de gerenciamento
+            header("Location: manager.php");
+            exit();
         } else {
-            echo "Apenas imagens nos formatos JPG, JPEG, PNG e GIF são permitidas.";
+            echo "Erro ao inserir post no banco de dados.";
         }
     } else {
-        echo "Erro ao fazer upload da imagem.";
+        echo "O campo da URL da imagem não está definido.";
     }
 } else {
     // Requisição inválida, redirecionar para a página de gerenciamento

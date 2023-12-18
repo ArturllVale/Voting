@@ -59,7 +59,10 @@ $result_posts = $stmt_posts->get_result();
         while ($row = $result_posts->fetch_assoc()) {
             echo "<div>";
             echo "<p><strong>ID:</strong> " . $row['id'] . "</p>";
-            echo "<p><strong>Imagem:</strong> " . $row['image_path'] . "</p>";
+
+            // Exibir a imagem como link externo
+            echo "<p><strong>Imagem:</strong> <a href='" . $row['image_path'] . "' target='_blank'>Ver Imagem</a></p>";
+
             echo "<p><strong>Tag:</strong> " . $row['tag'] . "</p>";
             echo "<p><strong>Texto:</strong> " . $row['text_content'] . "</p>";
             echo "<p><strong>Data de Criação:</strong> " . $row['created_at'] . "</p>";
