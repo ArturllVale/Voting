@@ -36,22 +36,23 @@ $result_posts = $stmt_posts->get_result();
         <h1>Bem-vindo ao Gerenciador de Posts</h1>
 
         <!-- Adicionar o formulário de postagem -->
-        <form action="processar_postagem.php" method="post" enctype="multipart/form-data">
-            <label for="image">Imagem (460px x 80px):</label>
-            <input type="file" name="image" accept="image/*" required><br>
+        <form action="processar_postagem.php" method="post">
+    <label for="image_url">Link da Imagem:</label>
+    <input type="url" name="image_url" placeholder="https://example.com/image.jpg" required><br>
 
-            <label for="tag">Etiqueta:</label>
-            <select name="tag" required>
-                <option value="Opção1">Opção 1</option>
-                <option value="Opção2">Opção 2</option>
-                <option value="Opção3">Opção 3</option>
-            </select><br>
+    <label for="tag">Etiqueta:</label>
+    <select name="tag" required>
+        <option value="Opção1">Opção 1</option>
+        <option value="Opção2">Opção 2</option>
+        <option value="Opção3">Opção 3</option>
+    </select><br>
 
-            <label for="text_content">Texto (até 1000 caracteres):</label>
-            <textarea name="text_content" id="editor" maxlength="1000" required></textarea><br>
+    <label for="text_content">Texto (até 1000 caracteres):</label>
+    <textarea name="text_content" id="editor" maxlength="1000" required></textarea><br>
 
-            <input type="submit" value="Postar">
-        </form>
+    <input type="submit" value="Postar">
+</form>
+
 
         <h2>Seus Posts:</h2>
         <?php
