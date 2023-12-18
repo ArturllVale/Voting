@@ -37,21 +37,21 @@ $result_posts = $stmt_posts->get_result();
 
         <!-- Adicionar o formulário de postagem -->
         <form action="processar_postagem.php" method="post">
-    <label for="image_url">Link da Imagem:</label>
-    <input type="url" name="image_url" placeholder="https://example.com/image.jpg" required><br>
+            <label for="image_url">Link da Imagem:</label>
+            <input type="url" name="image_url" placeholder="https://example.com/image.jpg" required><br>
 
-    <label for="tag">Etiqueta:</label>
-    <select name="tag" required>
-        <option value="Opção1">Opção 1</option>
-        <option value="Opção2">Opção 2</option>
-        <option value="Opção3">Opção 3</option>
-    </select><br>
+            <label for="tag">Etiqueta:</label>
+            <select name="tag" required>
+                <option value="Opção1">Opção 1</option>
+                <option value="Opção2">Opção 2</option>
+                <option value="Opção3">Opção 3</option>
+            </select><br>
 
-    <label for="text_content">Texto (até 1000 caracteres):</label>
-    <textarea name="text_content" id="editor" maxlength="1000" required></textarea><br>
+            <label for="text_content">Texto (até 1000 caracteres):</label>
+            <textarea name="text_content" id="editor" maxlength="1000" required></textarea><br>
 
-    <input type="submit" value="Postar">
-</form>
+            <input type="submit" value="Postar">
+        </form>
 
 
         <h2>Seus Posts:</h2>
@@ -61,8 +61,8 @@ $result_posts = $stmt_posts->get_result();
             echo "<div>";
             echo "<p><strong>ID:</strong> " . $row['id'] . "</p>";
 
-            // Exibir a imagem como link externo
-            echo "<p><strong>Imagem:</strong> <a href='" . $row['image_path'] . "' target='_blank'>Ver Imagem</a></p>";
+            // Exibir a imagem diretamente
+            echo "<p><strong>Imagem:</strong> <img src='" . $row['image_path'] . "' alt='Imagem'></p>";
 
             echo "<p><strong>Tag:</strong> " . $row['tag'] . "</p>";
             echo "<p><strong>Texto:</strong> " . $row['text_content'] . "</p>";
@@ -70,6 +70,7 @@ $result_posts = $stmt_posts->get_result();
             echo "</div>";
         }
         ?>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
