@@ -1,5 +1,6 @@
 <!-- manager.php -->
 <?php
+session_start();
 // Verificar se o usuário está autenticado
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php"); // Redirecionar para a página de login se não estiver autenticado

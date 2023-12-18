@@ -10,7 +10,9 @@ include_once("config/dados.php");
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $title; ?></title>
+    <title>
+        <?php echo $title; ?>
+    </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="data/estilo.css">
@@ -23,8 +25,23 @@ include_once("config/dados.php");
         <?php
         // Verificar se a página a ser incluída existe, caso contrário, incluir home.php por padrão
         $page = isset($_GET['page']) ? $_GET['page'] : 'home';
-        include "pages/$page.php";
+
+        // Certificar-se de que o nome da página é seguro (sem caracteres especiais, apenas letras e números)
+        if (!preg_match('/^[a-zA-Z0-9]+$/', $page)) {
+            $page = 'home'; // Página padrão em caso de nome inválido
+        }
+
+        // Construir o caminho completo do arquivo da página
+        $pagePath = "pages/$page.php";
+
+        // Verificar se o arquivo existe antes de incluir
+        if (file_exists($pagePath)) {
+            include $pagePath;
+        } else {
+            include "pages/home.php"; // Página padrão em caso de arquivo não encontrado
+        }
         ?>
+
     </div>
     <?php include 'modules/footer.php'; ?>
 

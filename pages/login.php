@@ -1,5 +1,6 @@
 <!-- login.php -->
 <?php
+session_start();
 
 // Verificar se o usuário já está logado, se sim, redirecionar para a página inicial
 if (isset($_SESSION['user_id'])) {
