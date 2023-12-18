@@ -1,9 +1,9 @@
 <?php
 // Configurações para conexão com o banco de dados
-$servername = "seu_servidor"; // Nome do servidor
-$username = "seu_usuario"; // Nome de usuário do banco de dados
-$password = "sua_senha"; // Senha do banco de dados
-$dbname = "seu_banco"; // Nome do banco de dados
+$servername =   "108.181.92.76";    // Nome do servidor
+$username =     "voting";           // Nome de usuário do banco de dados
+$password =     "voting32291143";   // Senha do banco de dados
+$dbname =       "voting";           // Nome do banco de dados
 
 // Conectar ao banco de dados
 $conn = new mysqli($servername, $username, $password, $dbname);
