@@ -33,8 +33,8 @@ $result_posts = $stmt_posts->get_result();
 <body>
 
     <div class="container-fluid">
-    <?php include 'modules/header.php'; ?>
-    <?php include 'modules/navbar.php'; ?>
+    <?php include '../modules/header.php'; ?>
+    <?php include '../modules/navbar.php'; ?>
         <h1>Bem-vindo ao Gerenciador de Posts</h1>
 
         <!-- Adicionar o formulário de postagem -->
