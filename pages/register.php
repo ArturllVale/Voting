@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
-include_once("config/conexao.php");
+include_once("../config/conexao.php");
 
 // Inicializar variáveis para mensagens de erro
 $login_error = $email_error = "";
