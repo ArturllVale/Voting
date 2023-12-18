@@ -8,7 +8,7 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="#">Início</a>
         <a class="nav-link" href="#">Sobre</a>
-        <a class="nav-link" href="#">Painel</a>
+        <a class="nav-link" href="pages/login.php">Painel</a>
         <a class="nav-link" href="#">Nova Conta</a>
       </div>
     </div>
