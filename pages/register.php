@@ -3,7 +3,7 @@ session_start();
 
 // Verificar se o usuário já está logado, se sim, redirecionar para a página inicial
 if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit();
 }
 
