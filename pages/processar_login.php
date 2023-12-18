@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['user_id'] = $user_id;
 
         // Redirecionar para a página inicial
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     } else {
         // Credenciais inválidas, redirecionar para a página de login
