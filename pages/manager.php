@@ -36,7 +36,7 @@ $result_posts = $stmt_posts->get_result();
         <h1>Bem-vindo ao Gerenciador de Posts</h1>
 
         <!-- Adicionar o formulário de postagem -->
-        <form action="processar_postagem.php" method="post">
+        <form action="processar_postagem.php" method="post" enctype="multipart/form-data">
             <label for="image_url">Link da Imagem:</label>
             <input type="url" name="image_url" placeholder="https://example.com/image.jpg" required><br>
 
@@ -47,18 +47,21 @@ $result_posts = $stmt_posts->get_result();
                 <option value="Opção3">Opção 3</option>
             </select><br>
 
+            <label for="title">Título:</label>
+            <input type="text" name="title" required><br>
+
             <label for="text_content">Texto (até 1000 caracteres):</label>
             <textarea name="text_content" id="editor" maxlength="1000" required></textarea><br>
 
             <input type="submit" value="Postar">
         </form>
 
-
         <h2>Seus Posts:</h2>
         <?php
         while ($row = $result_posts->fetch_assoc()) {
             echo "<div>";
             echo "<p><strong>ID:</strong> " . $row['id'] . "</p>";
+            echo "<p><strong>Título:</strong> " . $row['title'] . "</p>";
 
             // Exibir a imagem diretamente
             $imagePath = $row['image_url'];
@@ -77,7 +80,6 @@ $result_posts = $stmt_posts->get_result();
             echo "</div>";
         }
         ?>
-
 
     </div>
 
