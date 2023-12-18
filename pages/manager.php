@@ -1,4 +1,3 @@
-<!-- manager.php -->
 <?php
 session_start();
 // Verificar se o usuário está autenticado

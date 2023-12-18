@@ -1,4 +1,3 @@
-<!-- processar_login.php -->
 <?php
 session_start();
 include_once("config/conexao.php");
