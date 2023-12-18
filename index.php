@@ -20,7 +20,7 @@ include_once("config/dados.php");
     <div class="container-fluid">
         <?php include 'modules/header.php'; ?>
         <?php include 'modules/navbar.php'; ?>
-        <h1>Site de Voto</h1>
+        <h1><?php echo $title;?></h1>
         <?php include 'modules/footer.php'; ?>
     </div>
 
