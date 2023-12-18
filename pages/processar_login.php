@@ -21,8 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Armazenar o ID do usuário na sessão
         $_SESSION['user_id'] = $user_id;
 
-        // Redirecionar para a página inicial
-        header("Location: ../index.php");
+        // Redirecionar para a página de gerenciamento
+        header("Location: manager.php");
         exit();
     } else {
         // Credenciais inválidas, redirecionar para a página de login
